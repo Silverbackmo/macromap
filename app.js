@@ -11,7 +11,9 @@
     info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.1"/>',
     cup:'<path d="M5 8h12v8a5 5 0 0 1-10 0V8m10 1h2a3 3 0 0 1 0 6h-2M4 22h16M9 3v2m5-2v2"/>',
     bag:'<path d="M5 7h14l1 14H4L5 7Zm4 0V5a3 3 0 0 1 6 0v2"/>',
-    plus:'<path d="M12 5v14M5 12h14"/>'
+    plus:'<path d="M12 5v14M5 12h14"/>',
+    sliders:'<path d="M4 7h6m4 0h6M4 17h10m4 0h2"/><circle cx="12" cy="7" r="2"/><circle cx="16" cy="17" r="2"/>',
+    chevron:'<path d="m6 9 6 6 6-6"/>'
   };
   const svg = name => `<svg viewBox="0 0 24 24" aria-hidden="true">${icons[name] || icons.info}</svg>`;
   const $ = id => document.getElementById(id);
@@ -43,6 +45,11 @@
     try { localStorage.setItem('macromap-plan-v1',JSON.stringify({items:plan,goals})); return true; }
     catch { return false; }
   }
+  function setFiltersOpen(open, returnFocus = false) {
+    document.body.classList.toggle('filters-open',open);
+    $('mobile-filter-toggle').setAttribute('aria-expanded',String(open));
+    if(returnFocus) $('mobile-filter-toggle').focus({preventScroll:true});
+  }
   function renderCategories() {
     const items = state.view === 'drinks' ? meals.filter(m => m.kind === 'drink') : state.view === 'saved' ? meals.filter(m => saved.has(m.id)) : meals.filter(m => m.kind === 'food');
     const all = state.view === 'drinks' ? 'All drinks' : state.view === 'saved' ? 'All saved' : 'All meals';
@@ -65,6 +72,8 @@
   function render() {
     const visible = filterMeals(), noun = state.view === 'drinks' ? 'drink' : state.view === 'saved' ? 'saved item' : 'meal';
     $('results-count').textContent = `${visible.length} ${noun}${visible.length === 1 ? '' : 's'} ${state.view === 'saved' ? 'to revisit' : 'to explore'}`;
+    $('mobile-filter-summary').textContent = `$${state.budget} max · ${state.protein ? `${state.protein}g+ protein` : 'Any protein'}`;
+    $('mobile-filter-done-label').textContent = `Show ${visible.length} ${noun}${visible.length === 1 ? '' : 's'}`;
     $('filter-summary').textContent = state.view === 'drinks' ? 'A good sip deserves a spot in your day.' : 'Matched to your goals. Made for your day.';
     if(visible.length) $('meal-grid').innerHTML = visible.map(card).join('');
     else if(state.view === 'saved' && !saved.size) $('meal-grid').innerHTML = '<div class="empty-state"><div class="empty-symbol">♡</div><h3>Keep a good thing close.</h3><p>Tap the heart on a meal or drink to save it for next time.<br>Your favorites stay on this browser.</p><button class="primary-button" data-discover>Discover meals</button></div>';
@@ -93,6 +102,7 @@
     syncInputs(); render();
   }
   function changeView(view,scroll = true) {
+    setFiltersOpen(false);
     state.view = view; clearFilters();
     if(scroll) $('results-heading').scrollIntoView({behavior:'smooth',block:'start'});
   }
@@ -119,7 +129,7 @@
     $('open-compare').disabled = count < 2;
     $('open-compare').title = count < 2 ? 'Choose one more item to compare' : 'Compare selected items';
     $('compare-mini').innerHTML = state.compare.map(id => {const m = byId.get(id); return `<img src="assets/${m.art}.svg" alt="${m.name}">`;}).join('');
-    document.body.style.paddingBottom = count ? '85px' : '';
+    document.body.classList.toggle('has-comparison',count > 0);
   }
   function renderDetail(id) {
     const m = byId.get(id); if(!m) return; detailId = id;
@@ -207,14 +217,17 @@
   $('sort').addEventListener('change',()=>{state.sort=$('sort').value;render();});
   $('filter-form').addEventListener('submit',event=>event.preventDefault());
   $('clear-filters').addEventListener('click',clearFilters);
+  $('mobile-filter-toggle').addEventListener('click',()=>setFiltersOpen($('mobile-filter-toggle').getAttribute('aria-expanded') !== 'true'));
+  $('mobile-filter-done').addEventListener('click',()=>{setFiltersOpen(false,true);document.querySelector('.results').scrollIntoView({behavior:'smooth',block:'start'});});
   for(const [id,view] of [['discover-nav','discover'],['drinks-nav','drinks'],['saved-nav','saved']]) $(id).addEventListener('click',()=>changeView(view));
   $('meal-plan-nav').addEventListener('click',openPlan);$('meal-plan-top').addEventListener('click',openPlan);
   $('try-scenario').addEventListener('click',()=>{
+    setFiltersOpen(false);
     Object.assign(state,defaults,{view:'discover',budget:15,calories:700,protein:40,distance:5});
     Object.assign(goals,{budget:15,calories:700,protein:40});persistPlan();syncInputs();render();
     $('results-heading').scrollIntoView({behavior:'smooth',block:'start'});toast('Student lunch: $15 max, 700 cal max, at least 40g protein.');
   });
-  $('reset-demo').addEventListener('click',()=>{state.view='discover';state.compare=[];plan=[];goals={budget:20,calories:900,protein:40};persistPlan();clearFilters();document.querySelectorAll('dialog[open]').forEach(d=>d.close());toast('Demo reset. Saved favorites are kept.');window.scrollTo({top:0,behavior:'smooth'});});
+  $('reset-demo').addEventListener('click',()=>{setFiltersOpen(false);state.view='discover';state.compare=[];plan=[];goals={budget:20,calories:900,protein:40};persistPlan();clearFilters();document.querySelectorAll('dialog[open]').forEach(d=>d.close());toast('Demo reset. Saved favorites are kept.');window.scrollTo({top:0,behavior:'smooth'});});
   $('about-button').addEventListener('click',()=>$('about-dialog').showModal());
   $('open-compare').addEventListener('click',()=>{if(state.compare.length>=2){renderComparison();$('compare-dialog').showModal();}});
   $('clear-compare').addEventListener('click',()=>{state.compare=[];render();});
