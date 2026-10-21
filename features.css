@@ -1,0 +1,77 @@
+/* Goal explanations, recipe preferences and explicit search alternatives. */
+.meal-card{display:flex;flex-direction:column}
+.meal-art{flex-shrink:0}
+.meal-body{flex:1}
+.fit-block{margin:0 0 14px}
+.fit-kicker{display:block;margin-bottom:7px;color:#738267;font-size:9px;font-weight:600;letter-spacing:.7px;text-transform:uppercase}
+.fit-reasons{display:flex;flex-wrap:wrap;gap:5px;list-style:none;margin:0;padding:0}
+.fit-reasons li{display:flex;align-items:flex-start;gap:5px;padding:5px 7px;border-radius:6px;background:#edf4e5;color:#41613b;font-size:10px;line-height:1.5;max-width:100%}
+.fit-reasons svg{width:12px;height:12px;margin-top:1px;flex-shrink:0}
+.fit-reasons li.is-outside{background:#fbf0db;color:#866529}
+.dietary-tags{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 12px}
+.diet-tag{display:inline-block;border:1px solid #e0e7d6;border-radius:5px;padding:3px 6px;color:#61734e;font-size:9px;line-height:1.5;background:#fafcf7}
+.diet-tag.contains-pork{border-color:#eadfcb;background:#fbf5e9;color:#806944}
+.protein-value{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px;border-radius:7px;background:#f2f5eb;margin:0 0 12px;color:#6b7c5c;font-size:10px;line-height:1.5}
+.protein-value strong{font-size:11px;font-weight:650;color:#3f6135;white-space:nowrap}
+.protein-value.emphasized{background:#e5efcf;border:1px solid #d5e4ba}
+.value-sort-note{margin:12px 0 3px;padding:9px 12px;border-left:3px solid #7c9a55;background:#f0f5e8;color:#5c7447;font-size:11px;line-height:1.6;border-radius:0 7px 7px 0}
+.value-sort-note[hidden]{display:none}
+.diet-section .check-label{min-height:33px;gap:8px;font-size:11px}
+.diet-note{margin-top:8px;font-size:10px;line-height:1.6;color:#7b886e}
+.detail-fit-block{margin:19px 0 16px}
+.detail-fit-block .fit-reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.detail-fit-block .fit-reasons li{font-size:11px;padding:8px}
+.detail-value-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;background:#edf4e2;border:1px solid #e1e9d4;border-radius:8px;margin-bottom:13px;font-size:11px;color:#688153;line-height:1.6}
+.detail-value-row strong{font-size:15px;color:#3e6031;white-space:nowrap}
+.detail-text .diet-tag{font-size:10px}
+.empty-alternatives{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;max-width:700px;margin:21px auto 12px}
+.alternative-button{display:flex;align-items:flex-start;gap:10px;padding:14px;background:#fff;border:1px solid #ceddbf;border-radius:10px;text-align:left;color:#426039;min-height:80px}
+.alternative-button:hover{background:#edf4e5;border-color:#90ac72}
+.alternative-button>span:last-child{min-width:0;flex:1}
+.alternative-button strong{display:block;font-size:12px;line-height:1.6;font-weight:600;overflow-wrap:anywhere}
+.alternative-button small{display:block;margin-top:6px;color:#748963;font-size:10px;line-height:1.6}
+.alternative-arrow{display:grid;place-items:center;flex-shrink:0;height:25px;width:25px;background:#eaf1df;border-radius:50%;font-size:16px}
+.empty-state .preferences-kept{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:7px;margin:0;font-size:11px;color:#577442;line-height:1.7}
+.preferences-kept svg{height:15px;width:15px}
+.empty-state>.text-button{margin-top:9px;min-height:44px;padding:0 12px;font-size:12px;color:#6f805f}
+.plan-diet-note{padding:14px 16px;margin:0 0 17px;border:1px solid #dce7cf;border-radius:9px;background:#f0f6e8;color:#5b7549;line-height:1.7}
+.plan-diet-note strong{font-size:11px;font-weight:600}
+.plan-diet-note p{font-size:11px;margin-top:5px}
+.plan-diet-note.has-mismatch{border-color:#e9dbbd;background:#fbf3e3;color:#84652d}
+
+@media(max-width:700px){
+  .fit-block{margin:0 0 17px}
+  .fit-kicker{font-size:10px;margin-bottom:8px}
+  .fit-reasons{gap:6px}
+  .fit-reasons li{padding:6px 8px;font-size:12px;line-height:1.5}
+  .fit-reasons svg{width:14px;height:14px;margin-top:2px}
+  .dietary-tags{gap:6px;margin-bottom:14px}
+  .diet-tag{font-size:11px;padding:4px 8px}
+  .protein-value{padding:11px 12px;margin-bottom:14px;font-size:12px}
+  .protein-value strong{font-size:14px}
+  .value-sort-note{margin:12px 0 6px;padding:11px 13px;font-size:12px}
+  .diet-section .check-label{min-height:44px;gap:10px;font-size:14px}
+  .diet-note{margin-top:8px;font-size:12px;line-height:1.65}
+  .filter-toggle-copy>span{line-height:1.6}
+  .detail-fit-block .fit-reasons{grid-template-columns:1fr}
+  .detail-fit-block .fit-reasons li{font-size:13px;padding:9px 10px}
+  .detail-value-row{padding:13px;font-size:12px}
+  .detail-value-row strong{font-size:16px}
+  .detail-text .diet-tag{font-size:11px}
+  .empty-alternatives{grid-template-columns:1fr;gap:10px;margin-top:20px}
+  .alternative-button{min-height:85px;padding:14px 13px;gap:11px}
+  .alternative-button strong{font-size:13px;line-height:1.65}
+  .alternative-button small{font-size:12px}
+  .alternative-arrow{height:29px;width:29px;font-size:18px}
+  .empty-state .preferences-kept{font-size:12px}
+  .empty-state>.text-button{font-size:13px}
+  .plan-diet-note{padding:14px}
+  .plan-diet-note strong,.plan-diet-note p{font-size:12px}
+}
+
+@media(max-width:350px){
+  .fit-reasons li{font-size:11px}
+  .protein-value{padding:10px}
+  .protein-value strong{font-size:13px}
+  .detail-value-row{flex-wrap:wrap;gap:5px}
+}

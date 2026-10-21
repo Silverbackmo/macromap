@@ -1,4 +1,4 @@
-/* Fictional catalog. All prices, nutrition, caffeine and distances are illustrative. */
+/* Fictional catalog. All prices, nutrition, caffeine, recipe tags and distances are illustrative. */
 window.MACROMAP_MEALS = [
   {
     "id": "chicken-bowl",
@@ -19,7 +19,10 @@ window.MACROMAP_MEALS = [
     "accent": "#e4eadc",
     "art": "chicken-bowl",
     "rank": 1,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "turkey-wrap",
@@ -40,7 +43,10 @@ window.MACROMAP_MEALS = [
     "accent": "#f0e6d6",
     "art": "turkey-wrap",
     "rank": 2,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "salmon-plate",
@@ -61,7 +67,10 @@ window.MACROMAP_MEALS = [
     "accent": "#eadfd7",
     "art": "salmon-plate",
     "rank": 3,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "tofu-bowl",
@@ -82,7 +91,10 @@ window.MACROMAP_MEALS = [
     "accent": "#e1e9df",
     "art": "tofu-bowl",
     "rank": 4,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": true,
+    "dairyFree": true
   },
   {
     "id": "chicken-pita",
@@ -103,7 +115,10 @@ window.MACROMAP_MEALS = [
     "accent": "#efe3ce",
     "art": "turkey-wrap",
     "rank": 5,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "steak-bowl",
@@ -124,7 +139,10 @@ window.MACROMAP_MEALS = [
     "accent": "#e9dfd5",
     "art": "steak-bowl",
     "rank": 6,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "med-salad",
@@ -145,7 +163,10 @@ window.MACROMAP_MEALS = [
     "accent": "#e0e8d5",
     "art": "salad",
     "rank": 7,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "tuna-bowl",
@@ -166,7 +187,10 @@ window.MACROMAP_MEALS = [
     "accent": "#e5e7db",
     "art": "salmon-plate",
     "rank": 8,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "pesto-pasta",
@@ -187,7 +211,10 @@ window.MACROMAP_MEALS = [
     "accent": "#eee3d1",
     "art": "pasta",
     "rank": 9,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "chicken-plate",
@@ -208,7 +235,10 @@ window.MACROMAP_MEALS = [
     "accent": "#e4e8dc",
     "art": "chicken-plate",
     "rank": 10,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "falafel-wrap",
@@ -224,12 +254,15 @@ window.MACROMAP_MEALS = [
     "vegetarian": true,
     "source": "Partner entry example",
     "serving": "1 wrap · 340g",
-    "ingredients": "Roasted falafel, hummus, pickled cabbage, cucumber, tahini and a warm flatbread.",
+    "ingredients": "Roasted falafel, hummus, pickled cabbage, cucumber, tahini and a vegan flatbread.",
     "description": "A generous wrap with a little tang and a lot of character.",
     "accent": "#ebe1ce",
     "art": "turkey-wrap",
     "rank": 11,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": true,
+    "dairyFree": true
   },
   {
     "id": "shrimp-bowl",
@@ -250,7 +283,10 @@ window.MACROMAP_MEALS = [
     "accent": "#eaded1",
     "art": "salmon-plate",
     "rank": 12,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "chicken-tacos",
@@ -271,7 +307,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#ece4d5",
     "rank": 13,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "shrimp-tacos",
@@ -292,7 +331,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#e5eadb",
     "rank": 14,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "breakfast-burrito",
@@ -307,13 +349,16 @@ window.MACROMAP_MEALS = [
     "distance": 0.8,
     "vegetarian": false,
     "serving": "1 burrito · 350g",
-    "ingredients": "Chicken, scrambled egg, potatoes, black beans, peppers and a flour tortilla.",
+    "ingredients": "Chicken, eggs scrambled in olive oil, potatoes, black beans, peppers and a dairy free flour tortilla.",
     "description": "A breakfast that can keep up with a busy morning.",
     "art": "turkey-wrap",
     "source": "Partner entry example",
     "accent": "#eee1d4",
     "rank": 15,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "egg-sandwich",
@@ -334,7 +379,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#e3e9df",
     "rank": 16,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "omelet-plate",
@@ -355,7 +403,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#ece4d5",
     "rank": 17,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "lentil-soup",
@@ -376,7 +427,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#e5eadb",
     "rank": 18,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": true,
+    "dairyFree": true
   },
   {
     "id": "turkey-burger",
@@ -391,13 +445,16 @@ window.MACROMAP_MEALS = [
     "distance": 2.4,
     "vegetarian": false,
     "serving": "1 burger · 360g",
-    "ingredients": "Turkey patty, whole wheat bun, lettuce, tomato, pickles and mustard.",
+    "ingredients": "Turkey patty, dairy free whole wheat bun, lettuce, tomato, pickles and mustard.",
     "description": "Classic burger satisfaction with a grilled turkey patty.",
     "art": "burger",
     "source": "Partner entry example",
     "accent": "#eee1d4",
     "rank": 19,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "veggie-burger",
@@ -418,7 +475,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#e3e9df",
     "rank": 20,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "chicken-pesto",
@@ -439,7 +499,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#ece4d5",
     "rank": 21,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "mushroom-pizza",
@@ -460,7 +523,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#e5eadb",
     "rank": 22,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "teriyaki-bowl",
@@ -481,7 +547,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#eee1d4",
     "rank": 23,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "fajita-plate",
@@ -502,7 +571,10 @@ window.MACROMAP_MEALS = [
     "source": "Partner entry example",
     "accent": "#e3e9df",
     "rank": 24,
-    "kind": "food"
+    "kind": "food",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": true
   },
   {
     "id": "viet-coffee",
@@ -524,7 +596,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#e7dfd3",
     "rank": 25,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "cold-brew",
@@ -546,7 +621,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#dfebdf",
     "rank": 26,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": true,
+    "dairyFree": true
   },
   {
     "id": "matcha-latte",
@@ -568,7 +646,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#eee2d9",
     "rank": 27,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": true,
+    "dairyFree": true
   },
   {
     "id": "berry-smoothie",
@@ -590,7 +671,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#e6dfeb",
     "rank": 28,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "mango-lassi",
@@ -612,7 +696,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#e7dfd3",
     "rank": 29,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "mint-tea",
@@ -634,7 +721,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#dfebdf",
     "rank": 30,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": true,
+    "dairyFree": true
   },
   {
     "id": "lime-sparkler",
@@ -656,7 +746,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#eee2d9",
     "rank": 31,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": true,
+    "dairyFree": true
   },
   {
     "id": "strawberry-matcha",
@@ -678,7 +771,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#e6dfeb",
     "rank": 32,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "chocolate-shake",
@@ -700,7 +796,10 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#e7dfd3",
     "rank": 33,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": false,
+    "dairyFree": false
   },
   {
     "id": "coconut-water",
@@ -722,6 +821,33 @@ window.MACROMAP_MEALS = [
     "source": "Recipe example",
     "accent": "#dfebdf",
     "rank": 34,
-    "kind": "drink"
+    "kind": "drink",
+    "porkFree": true,
+    "vegan": true,
+    "dairyFree": true
+  },
+  {
+    "id": "pork-bowl",
+    "name": "Slow roasted pork bowl",
+    "restaurant": "Rice District",
+    "category": "Bowls",
+    "price": 11.75,
+    "calories": 730,
+    "protein": 36,
+    "carbs": 82,
+    "fat": 28,
+    "distance": 2.7,
+    "vegetarian": false,
+    "source": "Partner entry example",
+    "serving": "1 bowl · 425g",
+    "ingredients": "Slow roasted pork, brown rice, black beans, cabbage, pico de gallo and cilantro.",
+    "description": "A hearty sample rice bowl with slow roasted pork and fresh toppings.",
+    "accent": "#eadfd7",
+    "art": "steak-bowl",
+    "rank": 35,
+    "kind": "food",
+    "porkFree": false,
+    "vegan": false,
+    "dairyFree": true
   }
 ];
