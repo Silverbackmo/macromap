@@ -1,4 +1,12 @@
 /* Goal explanations, recipe preferences and explicit search alternatives. */
+.area-picker{display:flex;align-items:center;gap:14px;padding:15px 18px;margin:0 0 19px;border:1px solid #dce5d1;border-radius:11px;background:#f4f7ed}
+.area-picker-icon{display:grid;place-items:center;flex-shrink:0;width:35px;height:35px;border-radius:50%;background:#e6eddc;color:#547044}
+.area-picker-icon svg{width:18px;height:18px}
+.area-picker-field{flex:0 1 265px;min-width:0}
+.area-picker-field label{display:block;font-size:10px;font-weight:600;color:#6b7e5e;margin-bottom:5px}
+.area-picker-field select{width:100%;min-height:41px;padding:8px 30px 8px 10px;border:1px solid #d4dec9;border-radius:7px;background:#fff;color:#2e503b;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer}
+.area-picker>p{flex:1;font-size:11px;line-height:1.7;color:#77876b;max-width:320px}
+.plan-area-note{margin-top:0}
 .meal-card{display:flex;flex-direction:column}
 .meal-art{flex-shrink:0}
 .meal-body{flex:1}
@@ -40,6 +48,12 @@
 .plan-diet-note.has-mismatch{border-color:#e9dbbd;background:#fbf3e3;color:#84652d}
 
 @media(max-width:700px){
+  .area-picker{display:grid;grid-template-columns:28px minmax(0,1fr);align-items:start;gap:9px 11px;padding:14px;margin:0 0 15px}
+  .area-picker-icon{height:28px;width:28px;margin-top:23px}
+  .area-picker-icon svg{width:16px;height:16px}
+  .area-picker-field label{font-size:12px;margin-bottom:7px;line-height:1.5}
+  .area-picker-field select{font-size:14px;min-height:44px;padding-left:9px;padding-right:22px}
+  .area-picker>p{grid-column:2;font-size:12px;line-height:1.6;max-width:none}
   .fit-block{margin:0 0 17px}
   .fit-kicker{font-size:10px;margin-bottom:8px}
   .fit-reasons{gap:6px}
